@@ -1,0 +1,108 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 15, 2015, 9:48:50 AM
+    Author     : varderes
+*/
+
+.root {
+    
+    -fx-background-image: url("graybackground.jpg");
+    
+}
+
+
+#progressBar {
+-fx-background-color: #f17979
+
+}
+
+
+#run{
+    -fx-focus-color: FF0000;
+}
+#run:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+#clear{
+    -fx-focus-color: FF0000;
+}
+#clear:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+#quitButton{
+    -fx-focus-color: FF0000;
+}
+#quitButton:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+
+#selection{
+    -fx-focus-color: FF0000;
+}
+#selection:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+
+#cellsimtab{
+    -fx-focus-color: FF0000;
+}
+#cellsimtab:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+#mathematicatab{
+    -fx-focus-color: FF0000;
+}
+#mathematicatab:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+#abouttab{
+    -fx-focus-color: FF0000;
+}
+#abouttab:hover {
+    
+    -fx-background-color: FC8B8B
+    
+}
+
+
+#sliderX{
+    -fx-focus-color: FF0000;
+}
+#sliderY{
+    -fx-focus-color: FF0000;
+}
+#sliderZ{
+    -fx-focus-color: FF0000;
+}
+#sliderT{
+    -fx-focus-color: FF0000;
+}
+#sliderSimTime {
+    -fx-focus-color: FF0000;
+}
+#sliderSR {
+    -fx-focus-color: FF0000;
+}
+

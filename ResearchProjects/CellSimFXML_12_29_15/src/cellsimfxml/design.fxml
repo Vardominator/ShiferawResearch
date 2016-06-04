@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cellsimfxml.FXMLDocumentController">
+    <children>
+      <TabPane layoutX="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="cellsimtab" text="Cell Simulation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="605.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="98.0" layoutX="545.0" layoutY="365.0" opacity="0.64" stroke="BLACK" strokeType="INSIDE" width="223.0" />
+                        <ImageView fitHeight="47.0" fitWidth="807.0" layoutX="-5.0" layoutY="-8.0">
+                           <image>
+                              <Image url="@../greybar.jpg" />
+                           </image>
+                        </ImageView>
+                        <HBox layoutX="538.0" layoutY="473.0" prefHeight="8.0" prefWidth="234.0">
+                           <children>
+                              <Button fx:id="run" disable="true" mnemonicParsing="false" onAction="#runSim" prefHeight="25.0" prefWidth="75.0" text="Run...">
+                                 <HBox.margin>
+                                    <Insets bottom="4.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="clear" mnemonicParsing="false" onAction="#clearHandle" prefHeight="25.0" prefWidth="75.0" text="Clear">
+                                 <HBox.margin>
+                                    <Insets bottom="4.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="quitButton" mnemonicParsing="false" onAction="#byebye" prefHeight="25.0" prefWidth="75.0" text="Exit">
+                                 <HBox.margin>
+                                    <Insets bottom="4.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <VBox layoutX="40.0" layoutY="297.0" prefHeight="180.0" prefWidth="233.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Length of X" wrappingWidth="84.24099731445312">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="76.0" right="50.0" top="4.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderX" majorTickUnit="10.0" minorTickCount="0" prefHeight="0.0" prefWidth="208.0" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Length of Y">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="76.0" right="50.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderY" majorTickUnit="10.0" minorTickCount="0" prefHeight="0.0" prefWidth="208.0" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Length of Z">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="76.0" right="50.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderZ" majorTickUnit="10.0" minorTickCount="0" prefHeight="0.0" prefWidth="208.0" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                           </children>
+                        </VBox>
+                        <ProgressBar fx:id="progressBar" layoutX="258.0" layoutY="479.0" prefHeight="28.0" prefWidth="259.0" progress="0.0">
+                           <effect>
+                              <ColorAdjust brightness="0.05" />
+                              <ColorAdjust hue="0.90" />
+                           </effect></ProgressBar>
+                        <Text layoutX="259.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status: ">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="status" layoutX="303.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Values &amp; Click Run">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="23.0" layoutY="320.0" text="0" fx:id="xLabel">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="yLabel" layoutX="22.0" layoutY="375.0" text="0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="zLabel" layoutX="22.0" layoutY="430.0" text="0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="threshLabel" layoutX="264.0" layoutY="429.0" text="0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Text fx:id="welcomeText" fill="#ff2222" fontSmoothingType="LCD" layoutX="1.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, You Bastard!" wrappingWidth="281.1201171875" x="15.0" y="15.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="heartViewer" fitHeight="103.0" fitWidth="116.0" layoutX="680.0" layoutY="39.0" opacity="0.68">
+                           <image>
+                              <Image url="@../heartbeating-0.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox layoutX="297.0" layoutY="296.0" prefHeight="160.0" prefWidth="233.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation Time (ms)">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="50.0" right="50.0" top="4.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderSimTime" blockIncrement="1.0" max="5.0" min="1.0" prefHeight="0.0" prefWidth="208.0">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SR Load">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="92.0" right="50.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderSR" max="2000.0" min="500.0" prefHeight="0.0" prefWidth="208.0" snapToTicks="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                              <Text fill="#f51c1c" strokeType="OUTSIDE" strokeWidth="0.0" text="Threshold">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" left="85.0" right="20.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Slider fx:id="sliderT" max="200.0" prefHeight="0.0" prefWidth="208.0">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="15.0" />
+                                 </VBox.margin>
+                              </Slider>
+                           </children>
+                        </VBox>
+                        <ChoiceBox fx:id="selection" layoutX="546.0" layoutY="321.0" prefHeight="31.0" prefWidth="221.0">
+                           <effect>
+                              <Blend mode="DARKEN" opacity="0.84" />
+                           </effect></ChoiceBox>
+                        <Label fx:id="srloadLabel" layoutX="263.0" layoutY="374.0" text="500">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Label fx:id="simtimeLabel" layoutX="262.0" layoutY="319.0" text="1ms">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <Text fx:id="progressText" layoutX="386.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="596.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation Options" />
+                        <Text fill="RED" layoutX="556.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warnings: ">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="warning1" fill="RED" layoutX="556.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum lengths must be 3!" />
+                        <Text fx:id="optionWarning" fill="RED" layoutX="556.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No option selected!" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="abouttab" text="About">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </TabPane>
+    </children>
+</AnchorPane>
